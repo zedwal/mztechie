@@ -168,24 +168,21 @@ class ArticleController {
 
   def tag = {
     def criteria = Article.createCriteria()
-    params.max = params.max?: 10
+    params.max = params.max?: 5
     def articles = criteria.list(params) {
       tags {
         eq "name", "${params.id}", [ignoreCase: true]
       }
     }
 
-    /*    articles.each {
-      it .tags.each {n -> println n}
-    }
-*/
     render (view: "articles",
-            model: [articles: articles] + clouds( ))
+            model: [articles : articles,
+                    totalCount: articles.totalCount] + clouds( ))
   }
 
   def category = {
     def criteria = Article.createCriteria()
-    params.max = params.max?: 10
+    params.max = params.max?: 5
     def articles = criteria.list(params) {
       course {
         eq "name", "${params.id}", [ignoreCase: true]
@@ -193,6 +190,7 @@ class ArticleController {
     }
 
     render (view: "articles",
-            model: [articles: articles] + clouds( ))
+            model: [articles : articles,
+                    totalCount: articles.totalCount] + clouds( ))
   }
 }
