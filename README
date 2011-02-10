@@ -8,5 +8,33 @@ Wiki pages for the project yet not publihed. I will try ASAP.
 
 If u find it helpful, Don't forget to spread.
 
+KNOWN ISSUES
+============
+
+* RSS Feed not implemented yet.
+
+* There are some URL Mapping issues.
+Its adding arguments to tags also. Need to identify this thing. 
+
+* Login/Logout not implemented yet, however backend code is written.
+
+* Code is not saggregate yet, Need to move most of the code to services i.e. business logic.
+
+* Need to implement admin panel
+
+
+BEST THINGS ABOUT
+=================
+* Using 960 grid system for UI
+* With the help of URLMapping, url's are of blog type.
+
+REFERENCES
+==========
+
+Groovy and Grails Books
+Groovy and Grails Blogs
+
+
+
 Thanks
 Manish Zedwal
