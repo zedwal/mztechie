@@ -1,0 +1,39 @@
+WDM Editor for post articles
+
+Stackoverflow type editor implementation
+*http://tinyurl.com/y52jgu6
+
+Markdown syntax
+*http://daringfireball.net/projects/markdown/syntax
+
+
+Showdown
+*http://attacklab.net/showdown/
+
+Web Serviced
+------------
+http://grails.org/doc/1.0.x/guide/13.%20Web%20Services.html
+
+Facing problem in install mail plugin in grails?
+------------------------------------------------
+		::::::::::::::::::::::::::::::::::::::::::::::
+
+		::          UNRESOLVED DEPENDENCIES         ::
+
+		::::::::::::::::::::::::::::::::::::::::::::::
+
+		:: javax.mail#mail;1.4.1: not found
+
+		::::::::::::::::::::::::::::::::::::::::::::::
+
+http://download.java.net/maven/1/javax.mail/jars/mail-1.4.1.jar
+
+
+tag cloud color #4C6E94
+==============
+
+
+Grails validation
+Grails filter
+Groovy Closures
+Grails Unit/Integration testing

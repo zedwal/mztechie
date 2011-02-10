@@ -1,0 +1,150 @@
+Grails - Perception is everything
+
+Grails is an incredibly productive framework, as good as or better than Rails.  One of the biggest hurdles to Grails adoption continues to be its perception among developers at large.
+
+**The Misconception**
+
+While perusing through the comments of a rare Grails article at [Slashdot], it became very clear that Java's reputation is hurting adoption of Grails amongst some circles of developers.  It appears that Grails is dismissed by many because:
+
+   1. Java development is slow and painful
+   2. Groovy doesn't provide any real advantages.  My IDE will generate getters and setters for me
+   3. Java runs slowly
+
+**The Solution**
+
+As any Grails developer knows, traditional web development with Java is slow and painful.  Grails is not traditional Java web development.  Grails provides real speed and productivity to the developer with scaffolding, auto reloading of classes (change code, click refresh in browser to see the change), great testing support, and GORM - the mother of all database abstraction layers.
+
+So, how do we overcome these misconceptions?  As recently mentioned in [Sten's blog] and by [Venkat Subramaniam] at the [GR8 in the US conference], continue to be the outlier.  Push for change and improvement within your organization.  Lead by example.  Continue to use Groovy and Grails to provide solutions.
+
+The misconceptions of Grails won't go away overnight, but they will go away.  Many of the negative comments attributed to Grails were made by people that had never used it.  They simply fell back on their Java experience and assumed Grails would yield the same results.  Nothing could be further from the truth.
+
+[Slashdot]: http://developers.slashdot.org/story/10/04/18/2135250/Thoughts-On-the-State-of-Web-Development
+[Sten's blog]: http://blogs.citytechinc.com/sanderson/?p=403
+[Venkat Subramaniam]: http://www.agiledeveloper.com/blog/
+[GR8 in the US conference]: http://www.gr8conf.org/blog/2010/04/15/71
+
+====================================================================================
+Grails Pagination Done Right
+
+In it's simplest form, pagination in Grails is quite straight forward, but what happens when you deviate from the simple?  Dynamic finders to the rescue!
+
+**Problem**:  Provide pagination for a subset of domain objects
+
+**Answer**:  See the code below
+
+**Domain Object**
+
+    class Cycle {
+        String manufacturer
+    }
+*Listing 1 - Cycle.groovy*
+ 
+**Controller**
+
+We need to be able to select cycles based upon their manufacturer (ie. Honda, Yamaha, Kawasaki, etc.).  The manufacturer we wish to query on will be included in the request as a parameter.
+
+    class CycleController {
+        def index = {
+            params.max = Math.min( params.max ? params.max.toInteger() : 16,  100)
+        
+            def cycleCount = Cycle.countByManufacturer(params.manufacturer)
+            def cycles = Cycle.findAllByManufacturer(params.manufacturer, 
+                          [max: params.max as Integer, 
+                           offset: params.offset as Integer])
+
+            [ cycleInstanceList: cycles, cycleInstanceTotal: cycleCount ]
+        }
+    }
+
+*Listing 2 - CycleController.groovy*
+ 
+
+It's important to note the need to cast the values of parameters **max** and **min** to Integer.  If this is not done, max and min will not work for pagination.  I thought autoboxing would work in this case, but it doesn't.
+
+The **countBy*** dynamic query is a great way to get counts without being resource intensive.  A **countBy** needs to be performed because calling **size()** on the cycles list will only give the size of the list (in this case 16) as limited by the **max** parameter.
+
+**index.gsp - Paginate Tag**
+
+    <g:paginate controller="cycle" action="index" 
+                total="${cycleInstanceTotal}" 
+                params="[manufacturer: params?.manufacturer]">
+    </g:paginate>
+
+*Listing 3 - index.gsp*
+ 
+
+The params tag is included so that when pagination buttons are clicked, the required manufactured parameter will be passed to the controller and used to limit the results to the desired manufacturer.
+
+I hope this helps many of you with pagination.  Of course, things can always get more complicated, that's when [critera queries] are needed, but in most cases, dynamic finders will suffice.
+
+
+[critera queries]: http://grails.org/doc/1.1/guide/5.%20Object%20Relational%20Mapping%20%28GORM%29.html#5.4.2%20Criteria
+=====================================================
+
+
+Grails: Getting Started in NetBeans 6.7
+
+[NetBeans 6.7] Beta is a good IDE for Grails development, but getting a Grails' project configured isn't always straight forward.  Here's a walk through to help you get up and running.
+
+1. Download the [Groovy documentation] and unzip it to your preferred directory. This directory will be referred to later when configuring Grails within NetBeans.
+
+2. Download [Grails] and unzip it to your preferred directory.  This directory will be referred to later when configuring Grails within NetBeans.
+
+3. Download the Java SE version of the latest NetBeans 6.7 release.  The most recent release as of this writing is tagged 'Beta' which may be found at:  [Netbeans 6.7].  Please note, Grails is supported in all of the available NetBeans 6.7 bundles.  I've personally found that the Java SE version is the best starting point for me.
+
+4. Install NetBeans as outlined on the [installation page]
+
+5. Once installation has completed, launch the IDE
+
+6. Select Activate Features
+
+  ![Active Features][1]
+   
+7. Select Available Plugins >> Groovy and Grails
+
+  ![Available Plugins][2]
+
+8. Click Install
+
+9. Follow the prompts to complete the installation of the plugin
+
+10. Restart the IDE
+
+11. In NetBeans, select File >> New Project
+
+12. Select Groovy >> Grails Application
+
+    ![Groovy >> Grails Application][3]
+
+13. Select Next
+
+14. Select Configure Grails
+
+   ![Configure Grails][4]
+
+15. Set the Groovy Doc and Grails Home paths. Make sure to select the 'html' directory within the unzipped Groovy Docs folder
+
+  ![Groovy Docs and Grails Configuration][Grails Configuration]
+
+16. Select Ok
+
+17. Select Finish
+
+18. Your done! Enjoy developing your Grails application
+
+19. Special note: To speed up NetBeans performance, close the tasks tab at the bottom of the IDE 
+
+[Netbeans 6.7]: http://download.netbeans.org/netbeans/6.7/
+[Groovy documentation]: http://groovy.codehaus.org/Download
+[Grails]: http://www.grails.org/Download
+[installation page]: http://www.netbeans.org/community/releases/67/install.html
+
+[1]: http://farm4.static.flickr.com/3308/3574389801_8dab728239.jpg "Active Features"
+
+[configure_grails]: http://farm4.static.flickr.com/3301/3574390067_48543221c1.jpg "Configure Grails"
+
+[2]: http://farm4.static.flickr.com/3401/3574390377_bb38138c23_o.png "Available Plugins Tab"
+
+[3]: http://farm3.static.flickr.com/2432/3574390017_92deb2d2f2.jpg "New Grails Application"
+
+[4]: http://farm4.static.flickr.com/3558/3575198226_a69aba5e94.jpg "Grails Configuration"

@@ -1,0 +1,318 @@
+body {
+  color: #FFFFFF;
+  font: 15px/20px "Palatino","Baskerville","Georgia" !important;
+  width: 1000px;
+  background: #282C2F; /*url(../images/bg.png)*/
+  margin: 5px auto;
+  text-align: justify;
+}
+
+hr {
+  height:3px;
+}
+
+div .mzheader {
+  height: 60px;
+  margin-top:20px;
+}
+.sbox{
+  background-image: url(../images/magnifying-glass.gif);
+  background-repeat:no-repeat;
+  padding-left: 20px;
+}
+
+#rss{
+  background-image: url(../images/rss.png);
+  background-position: right;
+  background-repeat:no-repeat;
+  padding-right: 21px;
+}
+
+.contents {
+  margin-top: 20px;
+}
+
+div#hl {
+  font-family: georgia, times, serif;
+  text-transform: uppercase;
+  font-size: 50px;
+  text-decoration: underline;
+  clear: both;
+}
+
+.quote {
+  font-size:10px;
+  text-transform: uppercase;
+}
+
+.clear {
+  clear: both;
+}
+
+div .menu {
+  float:right;
+  background: transparent;
+}
+
+.main {
+}
+
+.post {
+  margin-top: 20px;
+  /*line-height: 150%;*/
+  /*letter-spacing: 1px;*/
+}
+
+.title {
+  text-transform: uppercase;
+}
+
+div .pfooter {
+  margin-top: 10px;
+}
+
+.meta {
+    color: #999999;
+    font: 78%/1.4em 'Trebuchet MS',Trebuchet,Arial,Verdana,Sans-serif;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+div .meta123 {
+  margin-bottom: 10px;
+  width: 100%;
+  clear: both;
+  color: #999999;
+}
+
+div .tags {
+  float:left;
+  width: 90%;
+  font: 78%/1.4em 'Trebuchet MS',Trebuchet,Arial,Verdana,Sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+div .more {
+  text-align: center;
+  width: 50px;
+  float: right;
+  -moz-border-radius:5px;
+  border: 1px solid gray;
+}
+
+
+.footer {
+  width: 100%;
+}
+
+.footer > table {
+  width: 100%;
+  text-align: center;
+  border-spacing: 5px;
+}
+
+.footer > table >th {
+  color: black;
+}
+
+
+.ftitle {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+div .fpane {
+
+}
+
+div .fpane p{
+  font-size: 20px;
+  margin: auto;
+}
+
+div .side_fpane {
+  float: left;
+  width: 32%;
+  text-align: center;
+}
+
+div .middle_fpane {
+  float: left;
+  width: 34%;
+  text-align: center;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.copyright {
+  font-family: verdana,geneva,sans-serif;
+  background: none repeat scroll 0 0 #E5E5E5;
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: black;
+  /*margin-top: 30px;*/
+ }
+
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+table th #texta{
+  border-spacing: 5px;
+  vertical-align: top;
+}
+
+input, textarea {
+    background: none repeat scroll 0 0 #FFFFFF;
+    font: 13px verdana,arial,verdana,sans-serif;
+    border-color: #111111 #CCCCCC #CCCCCC #111111;
+    border-style: solid;
+    border-width: 1px;
+    margin: 10px 0;
+    /*width: 100%;*/
+}
+
+code {
+  font: 13px "Courier new";
+  color: blue;
+}
+
+p > code {
+  color: #66CCFF;
+}
+
+.numero {
+  color: #BAE1F0;
+  font-family: Georgia;
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+div .comment_meta {
+  position: relative;
+  float: left;
+  width: 90%;
+  color: #999999;
+  font: 85%/1.4em 'Trebuchet MS',Trebuchet,Arial,Verdana,Sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+/*number ordering any where*/
+div .numorder {
+  padding: 0px;
+  margin: 0px;
+  width: 8%;
+  position: relative;
+  float: right;
+}
+
+/*comment meta*/
+div .cmeta {
+  position: relative;
+  float: left;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -moz-box-shadow: 0 0 10px #999999;
+  margin-bottom: 20px;
+  padding: 10px 5px;
+  width: 100%;
+}
+
+div .flash {
+  padding: 4px 20px;
+  padding-left: 30px;
+  background: url(../images/alert.png) no-repeat left;
+  font-style: italic;
+  font-size: large;
+  color: red;
+}
+
+a {
+  color: #66CCFF;
+}
+
+form input,textarea {
+  -moz-border-radius: 8px;
+  -moz-box-shadow: 0 0 5px #999999;
+  padding-left: 5px;
+}
+
+form input, textarea p  {
+  margin: 2px;
+}
+
+div .side_box {
+  margin: 20px 0px;
+}
+
+div .side_box {
+  background: #71818D;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding-left: 5px;
+}
+
+.sidebar {
+  font-size: 13px;
+  border-left: 2px solid #ff51F0;
+  border-left-style: solid;
+  font-family: verdana,geneva,sans-serif;
+}
+
+div .side_header {
+  padding-top: 10px;
+  padding-left: 5px;
+  font-size: 20px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+div .paginateme {
+  font: 12px/12px verdana,geneva,helvetica,arial,sans-serif;
+  letter-spacing: 0px;
+  background-image: url(../images/gl.gif);
+  -moz-border-radius: 5px 5px 5px 5px;
+  -moz-box-shadow: 0 0 10px #999999;
+  padding: 5px 10px;
+  color: black;
+}
+
+.currentStep {
+  margin: 1px 5px;
+  padding: 1px 8px;
+  border: 1px solid #cccccc;
+}
+
+a.step, a.prevLink, a.nextLink {
+  margin: 1px 5px;
+  padding: 1px 8px;
+  color: black;
+}
+
+div .floating_blob {
+  border-right: #a52a2a 3px solid;
+  padding-right: 3px;
+  border-top: #a52a2a 3px solid;
+  padding-left: 3px;
+  z-index: 1;
+  left: 50%;
+  float: none;
+  visibility: visible;
+  padding-bottom: 3px;
+  margin: 2px;
+  border-left: #a52a2a 3px solid;
+  padding-top: 3px;
+  border-bottom: #a52a2a 3px solid;
+  position: absolute;
+  top: 21%;
+  background-color: #ffb6c1
+}
